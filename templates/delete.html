@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Delete Vendor{% endblock %}
+{% block content %}
+    <h1>Delete Vendor</h1>
+    <form action="/allvendors/{{ vendor.id }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this vendor?');">
+      <input type="hidden" name="_method" value="DELETE">
+      <p>Are you sure you want to delete {{ vendor.first_name }} {{ vendor.last_name }}?</p>
+      <input type="submit" value="Delete Vendor">
+    </form>
+{% endblock %}
+

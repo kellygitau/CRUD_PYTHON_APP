@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Update Vendor
+{% endblock %}
+
+{% block content %}
+    <h1>Edit Vendor</h1>
+    <form method="POST" class="form" action="{{ url_for('update_vendor', id=vendor.id) }}">
+        <div>
+            <label for="first_name" class="form-label">First Name:</label>
+            <input type="text" id="first_name" name="first_name" value="{{ vendor.first_name }}" class="form-control">
+        </div>
+        <div>
+            <label for="last_name" class="form-label">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" value="{{ vendor.last_name }}" class="form-control">
+        </div>
+        <div>
+            <label for="town" class="form-label">Town:</label>
+            <input type="text" id="town" name="town" value="{{ vendor.town }}" class="form-control">
+        </div>
+        <div>
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="password" value="{{ vendor.password }}" class="form-control">
+        </div>
+        <div>
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="text" id="phone" name="phone" value="{{ vendor.phone }}" class="form-control">
+        </div>
+        <button type="submit" class="btn">Update Vendor</button>
+    </form>
+{% endblock %}

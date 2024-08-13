@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Vendors{% endblock %}
+
+
+{% block content %}
+  <h1>All Vendors</h1>
+  {% if no_vendors %}
+    <p>No vendors available</p>
+  {% else %}
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Town</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for vendor in vendors %}
+          <tr>
+            <td>{{ vendor.first_name }}</td>
+            <td>{{ vendor.last_name }}</td>
+            <td>{{ vendor.town }}</td>
+            <td>{{ vendor.phone }}</td>
+            <td>
+              <a href="{{ url_for('get_vendor', id=vendor.id) }}">View</a>
+              <a href="{{ url_for('update_vendor', id=vendor.id) }}">Edit</a>
+              <form action="{{ url_for('delete_vendor', id=vendor.id) }}" method="POST">
+                <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 10px;">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  <a href="{{ url_for('add_vendor') }}" class="add-vendor">Add Vendor</a>
+{% endblock %}

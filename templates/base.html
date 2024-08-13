@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        /* Style the links */
+        html, body {
+        height: 100%;
+        margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(120deg, #f6d365, #fda085);
+
+        }
+
+        main {
+            flex: 1;
+        }
+        nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            }
+
+        nav li {
+            margin-right: 1rem;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* Style the active link */
+        nav ul li a.active {
+            background-color: #fff;
+            color: #333;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        thead {
+            background-color: #eee;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            display: inline-block;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #333;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            font-size: 1.5em;
+            transition: all .35s ease-in-out;
+        }
+
+        a:hover {
+            background-color: #f2f3f4;
+            color: #212121;
+        }
+        a.add-vendor {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        a.add-vendor:hover {
+            background-color: #3e8e41;
+        }
+        .form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        .welcome-message {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: beige;
+        }
+        .welcome-message P, .welcome-message h1 {
+            text-transform: capitalize;
+            font-size: 2.5em;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="/vendors" class="{% if request.path.startswith('/vendors') %}active{% endif %}">Vendors</a></li>
+                <li><a href="/vendors/add" class="{% if request.path == '/vendors/add' %}active{% endif %}">Add Vendor</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Kelly Gitau</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Hompage{% endblock %}
+
+{% block content %}
+    <h1>Vendor Details</h1>
+    <table>
+      <tr>
+        <td>First Name:</td>
+        <td>{{ vendor.first_name }}</td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td>{{ vendor.last_name }}</td>
+      </tr>
+      <tr>
+        <td>Town:</td>
+        <td>{{ vendor.town }}</td>
+      </tr>
+      <tr>
+        <td>Phone:</td>
+        <td>{{ vendor.phone }}</td>
+      </tr>
+    </table>
+    <br>
+    <a href="/vendors/{{ vendor.id }}/edit">Edit Vendor</a>
+    <br>
+    <form action="/vendors/{{ vendor.id }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this vendor?');">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 10px;">Delete Vendor</button>
+    </form>
+{% endblock %}
