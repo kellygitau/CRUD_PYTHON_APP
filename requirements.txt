@@ -8,6 +8,6 @@ gunicorn==20.1.0  # If you are deploying using Gunicorn
 
 Flask-SQLAlchemy==3.0.5  # For SQLAlchemy integration
 Flask-Migrate==4.0.5     # For database migrations
-Flask-Login==0.6.3       # For user session management
-Flask-WTF==1.1.1         # For working with forms
-Flask-RESTful==0.3.10    # For building REST APIs
+Flask-Login==0.6.3       
+Flask-WTF==1.1.1         
+Flask-RESTful==0.3.10    
